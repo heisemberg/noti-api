@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities;
 
-public class SubModulos : BaseEntity
+public class Radicado : BaseEntity
 {
-    public string NombreSubmodulo {get; set;}
     public DateTime FechaCreacion {get; set;}
     public DateTime FechaModificacion {get; set;}
-
-    public ICollection<MaestrosVsSubmodulos> MaestrosVsSubmodulos {get; set;}
+    public ICollection<ModuloNotificacion> ModuloNotificaciones {get; set;}
 }

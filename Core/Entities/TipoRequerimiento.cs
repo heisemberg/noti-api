@@ -10,5 +10,5 @@ public class TipoRequerimiento : BaseEntity
     public string Nombre { get; set; }
     public DateTime FechaCreacion { get; set; }
     public DateTime FechaModificacion { get; set; }
-    public ICollection<ModuloNotificaciones> ModuloNotificaciones { get; set; }
+    public ICollection<ModuloNotificacion> ModuloNotificaciones { get; set; }
 }

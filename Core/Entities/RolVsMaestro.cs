@@ -14,7 +14,7 @@ public class RolVsMaestro : BaseEntity
 
     [Required]
     public int IdModulosMaestros {get; set;}
-    public ModulosMaestros ModulosMaestros {get; set;}
+    public ModuloMaestro ModulosMaestros {get; set;}
 
     public DateTime FechaCreacion {get; set;}
     public DateTime FechaModificacion {get; set;}

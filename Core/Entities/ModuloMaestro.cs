@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Core.Entities;
 
-public class ModulosMaestros : BaseEntity
+public class ModuloMaestro : BaseEntity
 {
     public string NombreModulo {get; set;}
     public DateTime FechaCreacion {get; set;}
     public DateTime FechaModificacion {get; set;}
-    public ICollection<RolVsMaestro> RolVsMaestro {get; set;}
-    public ICollection<MaestrosVsSubmodulos> MaestrosVsSubmodulos {get; set;}
+    public ICollection<RolVsMaestro> RolesVsMaestros {get; set;}
+    public ICollection<MaestroVsSubmodulo> MaestrosVsSubmodulos {get; set;}
 }

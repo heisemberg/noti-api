@@ -9,16 +9,16 @@ namespace Core.Entities;
 public class Blockchain : BaseEntity
 {
     [Required]
-    public int IdTipoNotificaciones { get; set; }
-    public TipoNotificaciones TipoNotificaciones { get; set; }
+    public int IdTipoNotificacion { get; set; }
+    public TipoNotificacion TipoNotificaciones { get; set; }
 
     [Required]
     public int IdHiloRespuesta { get; set; }
-    public HiloRespuestaNotificacion HiloRespuestaNotificacion { get; set; }
+    public HiloRespuestaNotificacion HiloRespuestaNotificaciones { get; set; }
 
     [Required]
     public int IdAuditoria { get; set; }
-    public Auditoria Auditoria { get; set; }
+    public Auditoria Auditorias { get; set; }
 
     public string HashGenerado { get; set; }
 

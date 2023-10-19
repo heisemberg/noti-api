@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Core.Entities;
 
-public class GenericosVsSubmodulos : BaseEntity
+public class GenericoVsSubmodulo : BaseEntity
 {
     [Required]
-    public int IdPermisosGenericos { get; set; }
-    public PermisosGenericos PermisosGenericos { get; set; }
+    public int IdPermisoGenerico { get; set; }
+    public PermisoGenerico PermisosGenericos { get; set; }
 
     [Required]
-    public int IdMaestrosSubModulos { get; set; }
-    public MaestrosVsSubmodulos MaestrosVsSubmodulos { get; set; }
+    public int IdMaestroSubModulo { get; set; }
+    public MaestroVsSubmodulo MaestrosVsSubmodulos { get; set; }
 
     [Required]
     public int IdRol { get; set; }
-    public Rol Rol { get; set; }
+    public Rol Roles { get; set; }
 
     public DateTime FechaCreacion { get; set; }
     public DateTime FechaModificacion { get; set; }
