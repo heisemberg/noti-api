@@ -10,10 +10,10 @@ public class RolVsMaestro : BaseEntity
 {
     [Required]
     public int IdRol {get; set;}
-    public Rol Rol {get; set;}
+    public Rol Roles {get; set;}
 
     [Required]
-    public int IdModulosMaestros {get; set;}
+    public int IdModuloMaestro {get; set;}
     public ModuloMaestro ModulosMaestros {get; set;}
 
     public DateTime FechaCreacion {get; set;}
