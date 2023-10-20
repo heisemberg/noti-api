@@ -8,7 +8,7 @@ using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiNoti.Controllers;
+namespace NotiApi.Controllers;
 public class BlockchainController : BaseController
 {
     private readonly IUnitOfWork _unitOfWork;

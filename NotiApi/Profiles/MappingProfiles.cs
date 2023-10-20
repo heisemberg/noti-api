@@ -15,6 +15,7 @@ namespace NotiApi.Profiles
             CreateMap<Auditoria, AuditoriaDto>().ReverseMap();
             CreateMap<Blockchain, BlockchainDto>().ReverseMap();
             CreateMap<EstadoNotificacion, EstadoNotificacionDto>().ReverseMap();
+            CreateMap<Formato, FormatoDto>().ReverseMap();
         }
     }
 }
