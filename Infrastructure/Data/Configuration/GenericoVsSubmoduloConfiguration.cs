@@ -21,7 +21,7 @@ namespace Infrastructure.Data.Configuracion
 
              builder.HasOne(p => p.MaestrosVsSubmodulos)
                  .WithMany(p => p.GenericosVsSubmodulos)
-                 .HasForeignKey(p => p.IdMaestroSubModulo);
+                 .HasForeignKey(p => p.IdMaestroSubmodulo);
 
              builder.HasOne(p => p.Roles)
                  .WithMany(p => p.GenericosVsSubmodulos)
