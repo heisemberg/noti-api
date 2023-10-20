@@ -16,6 +16,18 @@ namespace NotiApi.Profiles
             CreateMap<Blockchain, BlockchainDto>().ReverseMap();
             CreateMap<EstadoNotificacion, EstadoNotificacionDto>().ReverseMap();
             CreateMap<Formato, FormatoDto>().ReverseMap();
+            CreateMap<GenericoVsSubmodulo, GenericoVsSubModuloDto>().ReverseMap();
+            CreateMap<HiloRespuestaNotificacion, HiloRespuestaNotificacionDto>().ReverseMap();
+            CreateMap<MaestroVsSubmodulo, MaestroVsSubmoduloDto>().ReverseMap();
+            CreateMap<ModuloMaestro, ModuloMaestroDto>().ReverseMap();
+            CreateMap<ModuloNotificacion, ModuloNotificacionDto>().ReverseMap();
+            CreateMap<PermisoGenerico, PermisoGenericoDto>().ReverseMap();
+            CreateMap<Radicado, RadicadoDto>().ReverseMap();
+            CreateMap<Rol, RolDto>().ReverseMap();
+            CreateMap<RolVsMaestro, RolVsMaestroDto>().ReverseMap();
+            CreateMap<SubModulo, SubModuloDto>().ReverseMap();
+            CreateMap<TipoNotificacion, TipoNotificacionDto>().ReverseMap();
+            CreateMap<TipoRequerimiento, TipoRequerimientoDto>().ReverseMap();
         }
     }
 }
