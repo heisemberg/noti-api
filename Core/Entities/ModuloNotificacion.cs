@@ -9,6 +9,7 @@ namespace Core.Entities;
 public class ModuloNotificacion : BaseEntity
 {
     public string AsuntoNotificacion { get; set; }
+    public string TextoNotificacion { get; set; }
 
     [Required]
     public int IdTipoNotificacion { get; set; }
@@ -33,8 +34,6 @@ public class ModuloNotificacion : BaseEntity
     [Required]
     public int IdTipoRequerimiento { get; set; }
     public TipoRequerimiento TipoRequerimientos { get; set; }
-
-    public string TextoNotificacion { get; set; }
 
     public DateTime FechaCreacion { get; set; }
     public DateTime FechaModificacion { get; set; }
