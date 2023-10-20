@@ -13,6 +13,8 @@ namespace NotiApi.Profiles
         public MappingProfiles()
         {
             CreateMap<Auditoria, AuditoriaDto>().ReverseMap();
+            CreateMap<Blockchain, BlockchainDto>().ReverseMap();
+            CreateMap<EstadoNotificacion, EstadoNotificacionDto>().ReverseMap();
         }
     }
 }

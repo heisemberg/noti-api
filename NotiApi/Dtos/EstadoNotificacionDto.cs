@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace NotiApi.Dtos
 {
-    public class AuditoriaDto
+    public class EstadoNotificacionDto
     {
         public int Id { get; set; }
-        public string NombreUsuario { get; set; }
+        public string NombreEstado { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
     }
