@@ -9,12 +9,12 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NotiApi.Controllers;
-public class RolController : BaseController
+public class PermisoGenericoController : BaseController
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public RolController(IUnitOfWork unitOfWork, IMapper mapper)
+    public PermisoGenericoController(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
@@ -23,70 +23,70 @@ public class RolController : BaseController
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<RolDto>>> Get()
+    public async Task<ActionResult<IEnumerable<PermisoGenericoDto>>> Get()
     {
-        var rol = await _unitOfWork.Roles.GetAllAsync();
+        var permiso = await _unitOfWork.PermisosGenericos.GetAllAsync();
 
-        return _mapper.Map<List<RolDto>>(rol);
+        return _mapper.Map<List<PermisoGenericoDto>>(permiso);
     }
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<RolDto>> Get(int id){
-        var rol = await _unitOfWork.Roles.GetByIdAsync(id);
-        if (rol == null){
+    public async Task<ActionResult<PermisoGenericoDto>> Get(int id){
+        var permiso = await _unitOfWork.PermisosGenericos.GetByIdAsync(id);
+        if (permiso == null){
             return NotFound();
         }
-        return _mapper.Map<RolDto>(rol);
+        return _mapper.Map<PermisoGenericoDto>(permiso);
     }
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<RolDto>> Post(RolDto RolDto){
-        var rol = _mapper.Map<Rol>(RolDto);
-        _unitOfWork.Roles.Add(rol);
+    public async Task<ActionResult<PermisoGenericoDto>> Post(PermisoGenericoDto PermisoGenericoDto){
+        var permiso = _mapper.Map<PermisoGenerico>(PermisoGenericoDto);
+        _unitOfWork.PermisosGenericos.Add(permiso);
         await _unitOfWork.SaveAsync();
-        if(rol == null){
+        if(permiso == null){
             return BadRequest();
         }
-        RolDto.Id = rol.Id;
-        return CreatedAtAction(nameof(Post), new {id = RolDto.Id}, RolDto);
+        PermisoGenericoDto.Id = permiso.Id;
+        return CreatedAtAction(nameof(Post), new {id = PermisoGenericoDto.Id}, PermisoGenericoDto);
     }
 
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<RolDto>> Put(int id, [FromBody]RolDto RolDto){
-        if(RolDto.Id == 0){
-            RolDto.Id = id;
+    public async Task<ActionResult<PermisoGenericoDto>> Put(int id, [FromBody]PermisoGenericoDto PermisoGenericoDto){
+        if(PermisoGenericoDto.Id == 0){
+            PermisoGenericoDto.Id = id;
         }
 
-        if(RolDto.Id != id){
+        if(PermisoGenericoDto.Id != id){
             return BadRequest();
         }
 
-        if(RolDto == null){
+        if(PermisoGenericoDto == null){
             return NotFound();
         }
-        var rol = _mapper.Map<Rol>(RolDto);
-        _unitOfWork.Roles.Update(rol);
+        var permiso = _mapper.Map<PermisoGenerico>(PermisoGenericoDto);
+        _unitOfWork.PermisosGenericos.Update(permiso);
         await _unitOfWork.SaveAsync();
-        return RolDto;
+        return PermisoGenericoDto;
     }
 
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(int id){
-        var rol = await _unitOfWork.Roles.GetByIdAsync(id);
-        if(rol == null){
+        var permiso = await _unitOfWork.PermisosGenericos.GetByIdAsync(id);
+        if(permiso == null){
             return NotFound();
         }
-        _unitOfWork.Roles.Remove(rol);
+        _unitOfWork.PermisosGenericos.Remove(permiso);
         await _unitOfWork.SaveAsync();
         return NoContent();
     }

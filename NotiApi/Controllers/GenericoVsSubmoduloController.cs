@@ -9,12 +9,12 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NotiApi.Controllers;
-public class GenericoVsSubModuloController : BaseController
+public class GenericoVsSubmoduloController : BaseController
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public GenericoVsSubModuloController(IUnitOfWork unitOfWork, IMapper mapper)
+    public GenericoVsSubmoduloController(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
@@ -23,70 +23,70 @@ public class GenericoVsSubModuloController : BaseController
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<GenericoVsSubModuloDto>>> Get()
+    public async Task<ActionResult<IEnumerable<GenericoVsSubmoduloDto>>> Get()
     {
-        var generico = await _unitOfWork.GenericosVsSubModulos.GetAllAsync();
+        var generico = await _unitOfWork.GenericosVsSubmodulos.GetAllAsync();
 
-        return _mapper.Map<List<GenericoVsSubModuloDto>>(generico);
+        return _mapper.Map<List<GenericoVsSubmoduloDto>>(generico);
     }
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<GenericoVsSubModuloDto>> Get(int id){
-        var generico = await _unitOfWork.GenericosVsSubModulos.GetByIdAsync(id);
+    public async Task<ActionResult<GenericoVsSubmoduloDto>> Get(int id){
+        var generico = await _unitOfWork.GenericosVsSubmodulos.GetByIdAsync(id);
         if (generico == null){
             return NotFound();
         }
-        return _mapper.Map<GenericoVsSubModuloDto>(generico);
+        return _mapper.Map<GenericoVsSubmoduloDto>(generico);
     }
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<GenericoVsSubModuloDto>> Post(GenericoVsSubModuloDto GenericoVsSubModuloDto){
-        var generico = _mapper.Map<GenericoVsSubModulo>(GenericoVsSubModuloDto);
-        _unitOfWork.GenericosVsSubModulos.Add(generico);
+    public async Task<ActionResult<GenericoVsSubmoduloDto>> Post(GenericoVsSubmoduloDto GenericoVsSubmoduloDto){
+        var generico = _mapper.Map<GenericoVsSubmodulo>(GenericoVsSubmoduloDto);
+        _unitOfWork.GenericosVsSubmodulos.Add(generico);
         await _unitOfWork.SaveAsync();
         if(generico == null){
             return BadRequest();
         }
-        GenericoVsSubModuloDto.Id = generico.Id;
-        return CreatedAtAction(nameof(Post), new {id = GenericoVsSubModuloDto.Id}, GenericoVsSubModuloDto);
+        GenericoVsSubmoduloDto.Id = generico.Id;
+        return CreatedAtAction(nameof(Post), new {id = GenericoVsSubmoduloDto.Id}, GenericoVsSubmoduloDto);
     }
 
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<GenericoVsSubModuloDto>> Put(int id, [FromBody]GenericoVsSubModuloDto GenericoVsSubModuloDto){
-        if(GenericoVsSubModuloDto.Id == 0){
-            GenericoVsSubModuloDto.Id = id;
+    public async Task<ActionResult<GenericoVsSubmoduloDto>> Put(int id, [FromBody]GenericoVsSubmoduloDto GenericoVsSubmoduloDto){
+        if(GenericoVsSubmoduloDto.Id == 0){
+            GenericoVsSubmoduloDto.Id = id;
         }
 
-        if(GenericoVsSubModuloDto.Id != id){
+        if(GenericoVsSubmoduloDto.Id != id){
             return BadRequest();
         }
 
-        if(GenericoVsSubModuloDto == null){
+        if(GenericoVsSubmoduloDto == null){
             return NotFound();
         }
-        var generico = _mapper.Map<GenericoVsSubModulo>(GenericoVsSubModuloDto);
-        _unitOfWork.GenericosVsSubModulos.Update(generico);
+        var generico = _mapper.Map<GenericoVsSubmodulo>(GenericoVsSubmoduloDto);
+        _unitOfWork.GenericosVsSubmodulos.Update(generico);
         await _unitOfWork.SaveAsync();
-        return GenericoVsSubModuloDto;
+        return GenericoVsSubmoduloDto;
     }
 
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Delete(int id){
-        var generico = await _unitOfWork.GenericosVsSubModulos.GetByIdAsync(id);
+        var generico = await _unitOfWork.GenericosVsSubmodulos.GetByIdAsync(id);
         if(generico == null){
             return NotFound();
         }
-        _unitOfWork.GenericosVsSubModulos.Remove(generico);
+        _unitOfWork.GenericosVsSubmodulos.Remove(generico);
         await _unitOfWork.SaveAsync();
         return NoContent();
     }

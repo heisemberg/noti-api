@@ -16,7 +16,7 @@ namespace Core.Interfaces
         IRadicado Radicados { get; }
         ITipoNotificacion TipoNotificaciones { get; }
         ITipoRequerimiento TipoRequerimientos { get; }
-        IGenericoVsSubmodulo GenericosVsSubModulos { get; }
+        IGenericoVsSubmodulo GenericosVsSubmodulos { get; }
         IMaestroVsSubmodulo MaestrosVsSubModulos { get; }
         IModuloMaestro ModulosMaestros { get; }
         IPermisoGenerico PermisosGenericos { get; }

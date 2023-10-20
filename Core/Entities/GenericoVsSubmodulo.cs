@@ -13,7 +13,7 @@ public class GenericoVsSubmodulo : BaseEntity
     public PermisoGenerico PermisosGenericos { get; set; }
 
     [Required]
-    public int IdMaestroSubModulo { get; set; }
+    public int IdMaestroSubmodulo { get; set; }
     public MaestroVsSubmodulo MaestrosVsSubmodulos { get; set; }
 
     [Required]

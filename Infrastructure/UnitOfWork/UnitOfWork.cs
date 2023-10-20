@@ -105,10 +105,10 @@ namespace Infrastructure.UnitOfWork
                 return _tiporequerimientos;
             }
         }
-        public IGenericoVsSubmodulo GenericosVsSubModulos{
+        public IGenericoVsSubmodulo GenericosVsSubmodulos{
             get{
                 if(_genericosvssubmodulos == null){
-                    _genericosvssubmodulos = new GenericoVsSubModuloRepository(_context);
+                    _genericosvssubmodulos = new GenericoVsSubmoduloRepository(_context);
                 }
                 return _genericosvssubmodulos;
             }
